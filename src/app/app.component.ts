@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoItem } from './interfaces/todo-item';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
   <ul>
     <li *ngFor="let todoItem of todoList">
-      {{ todoItem.title }}
+    <app-todo-item [item]="todoItem"></app-todo-item>
     </li>
   </ul>
   <h1 *ngIf="userLoggedIn">Welcome!</h1>
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit{
   subtitle='word';
   userLoggedIn=true;
 
-  todoList = [
+  todoList: TodoItem[] = [
     {title: 'install NodeJS'},
     {title: 'install Angular CLI'},
     {title: 'create new app'},

@@ -37,7 +37,7 @@ export class InputButtonUnitComponent implements OnInit {
 
   changeTitle(inputElementReference) {
     console.log(inputElementReference);
-    this.title = inputElementReference.value;
+    this.title = inputElementReference;
   }
 
   show() {

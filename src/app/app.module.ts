@@ -4,11 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { InputButtonUnitComponent } from './input-button-unit/input-button-unit.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoItem } from './interfaces/todo-item';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputButtonUnitComponent
+    InputButtonUnitComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,
