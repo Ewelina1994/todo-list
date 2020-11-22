@@ -126,3 +126,8 @@ ol, ul {
   flex-grow: 1;
   padding-left: 11px;
 }
+
+//skreślanie
+.todo-complete {
+  text-decoration: line-through;
+}
