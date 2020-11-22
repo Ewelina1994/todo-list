@@ -3,35 +3,17 @@ import { TodoItem } from './interfaces/todo-item';
 
 @Component({
   selector: 'app-root',
-  template: `<span><h1>{{title}} app is running</h1></span>
-
-  <app-input-button-unit></app-input-button-unit>
-
-  <ul>
-    <li *ngFor="let todoItem of todoList">
-    <app-todo-item [item]="todoItem"></app-todo-item>
-    </li>
-  </ul>
-  <h1 *ngIf="userLoggedIn">Welcome!</h1>
+  template: `
+  <span><h1 class="app-title">{{title}}</h1></span>
+  <app-list-managerng></app-list-managerng>
   `,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
   title = 'todo-list';
-  subtitle='word';
-  userLoggedIn=true;
-
-  todoList: TodoItem[] = [
-    {title: 'install NodeJS'},
-    {title: 'install Angular CLI'},
-    {title: 'create new app'},
-    {title: 'serve app'},
-    {title: 'develop app'},
-    {title: 'deploy app'},
-  ];
 
   ngOnInit(): void {
-    this.title='Nowy tytuł';
+    this.title='Todo list';
     throw new Error('Method not implemented.');
   }
 

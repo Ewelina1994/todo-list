@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-button-unit',
   template: `
   <p>{{title}}</p>
-  <input #inputElementRef
+  <input class="todo-input"
+        #inputElementRef
          [value]="title"
          (keyup.enter)="changeTitle($event.target.value)">
 
-  <button (click)="changeTitle(inputElementRef.value)">
+  <button class="btn" (click)="changeTitle(inputElementRef.value)">
     Save
   </button>
   `,
@@ -17,6 +18,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputButtonUnitComponent implements OnInit {
 
+  @Output() submit: EventEmitter<string> = new EventEmitter();
+
   title='Hello World';
   constructor() {
     this.title='I love Angular'
@@ -24,7 +27,6 @@ export class InputButtonUnitComponent implements OnInit {
 
   ngOnInit(): void {
     this.title='Angular CLI Rules!';
-    this.show();
     setTimeout(() => {
       this.title = 'This is not the title you are looking for';
     }, 3000);
@@ -35,15 +37,9 @@ export class InputButtonUnitComponent implements OnInit {
   //   this.title = event.target.value; // the original functionality still works
   // }
 
-  changeTitle(inputElementReference) {
-    console.log(inputElementReference);
-    this.title = inputElementReference;
-  }
-
-  show() {
-    let x=10;
-    x+=10;
-    console.log(x);
+  changeTitle(newTitle: string) {
+    this.title = newTitle;
+    this.submit.emit(newTitle);
   }
 
   generateTitle(): string {

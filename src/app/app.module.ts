@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { InputButtonUnitComponent } from './input-button-unit/input-button-unit.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoItem } from './interfaces/todo-item';
+import { ListManagerngComponent } from './list-managerng/list-managerng.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputButtonUnitComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    ListManagerngComponent
   ],
   imports: [
     BrowserModule,
